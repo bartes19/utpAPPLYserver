@@ -19,6 +19,18 @@ public class Person implements Serializable {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String surname;
+
+    public Person(String name, String surname) {
+
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Person() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -33,5 +45,13 @@ public class Person implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

@@ -1,10 +1,8 @@
 package pl.edu.utp.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by szydzik on 07.12.2016.
@@ -18,6 +16,9 @@ public class Address implements Serializable {
 
     @Column(nullable = false)
     private String street;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Person> persons;
 
     public Long getId() {
         return id;
@@ -33,5 +34,13 @@ public class Address implements Serializable {
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    public List<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
     }
 }
